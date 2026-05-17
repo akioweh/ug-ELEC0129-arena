@@ -2,7 +2,7 @@
 
 This syllabus distils the 8 lecture topics of the module into a single map of what is — and is not — in scope for the final exam. It is organised by topic, not by week, since two weeks each cover Spatial Description (W2 + W3).
 
-**Module context.** UCL EEE Year-2 module, first of the IEP Robotics Minor. Focuses exclusively on **serial articulated robotic manipulators** (industrial robot arms) — not mobile robots, not parallel mechanisms beyond a one-slide mention, not soft robotics, not perception/AI. Notation follows John J. Craig, _Introduction to Robotics: Mechanics and Control_ throughout (modified DH convention; leading-superscript frame notation `${}^{A}P$`, `${}^{A}_{B}R$`, `${}^{A}_{B}T$`).
+**Module context.** UCL EEE Year-2 module, first of the IEP Robotics Minor. Focuses exclusively on **serial articulated robotic manipulators** (industrial robot arms) — not mobile robots, not parallel mechanisms beyond a one-slide mention, not soft robotics, not perception/AI. Notation follows John J. Craig, _Introduction to Robotics: Mechanics and Control_ throughout (modified DH convention; leading-superscript frame notation ${}^{A}P$, ${}^A_B R$, ${}^A_B T$).
 
 **How to use this for exam prep.**
 
@@ -35,20 +35,20 @@ The mathematical machinery underlying every later topic. Heavily examined.
 - Position of a point relative to a frame.
 - Position of a rigid body via a body-attached frame.
 - **Rotation matrix** derived from the projection of one frame's axes onto another's.
-- **Elementary rotations** about the $x$, $y$, $z$ axes (`Rot(x, θ)`, etc.).
+- **Elementary rotations** about the $x$, $y$, $z$ axes ($\mathrm{Rot}(x, \theta)$, etc.).
 - **Orthonormality** of rotation matrices; consequently $R^{-1} = R^{T}$.
 - Frame description as the pair (rotation, origin position).
-- Coordinate-mapping formulas: pure translation; pure rotation; **combined translation and rotation** `${}^{A}P = {}^{A}_{B}R \, {}^{B}P + {}^{A}P_{B\text{org}}$`.
-- The **4×4 homogeneous transformation matrix (HTM)** `${}^{A}_{B}T$`; **compound transformations** `${}^{A}_{C}T = {}^{A}_{B}T \, {}^{B}_{C}T$` along a kinematic chain.
+- Coordinate-mapping formulas: pure translation; pure rotation; **combined translation and rotation** ${}^{A}P = {}^A_B R \, {}^{B}P + {}^{A}P_{B\text{org}}$.
+- The **4×4 homogeneous transformation matrix (HTM)** ${}^A_B T$; **compound transformations** ${}^A_C T = {}^A_B T \, {}^B_C T$ along a kinematic chain.
 - **Transform equations:** solving for one unknown HTM in a closed loop.
 
 **Inverse HTM and orientation parameterisations (W3):**
 
 - **Inverse of the HTM** in closed form, exploiting $R^{-1} = R^{T}$ and the resulting expression for the translation block.
 - Motivation: 9 rotation-matrix entries vs only 3 independent rotational DOF — alternative 3-parameter and 4-parameter representations.
-- **XYZ fixed angles** (roll-pitch-yaw): parameters→matrix; matrix→parameters via `atan2`; singularity when `cos β = 0`.
+- **XYZ fixed angles** (roll-pitch-yaw): parameters→matrix; matrix→parameters via $\mathrm{atan2}$; singularity when $\cos\beta = 0$.
 - **ZYX Euler angles** (moving-axis convention); equivalence to XYZ-fixed; the existence of **24 distinct fixed/Euler conventions**.
-- **Equivalent angle-axis** representation: the **Rodrigues rotation formula**; recovery of $(\hat{k}, θ)$ from $R$; singularities at $θ = 0$ and $θ = π$; sign ambiguity.
+- **Equivalent angle-axis** representation: the **Rodrigues rotation formula**; recovery of $(\hat{k}, \theta)$ from $R$; singularities at $\theta = 0$ and $\theta = \pi$; sign ambiguity.
 - **Euler parameters / unit quaternions**: rotation matrix in terms of $(\epsilon_1, \epsilon_2, \epsilon_3, \epsilon_4)$; recovery via the trace; alternative diagonal recipe when the trace is near zero.
 
 ---
@@ -60,18 +60,18 @@ The mathematical machinery underlying every later topic. Heavily examined.
 Given joint variables, find end-effector pose.
 
 - **Motivation:** mapping joint-space coordinates to Cartesian-space end-effector pose; planar three-link trigonometric solution as a hand-built example.
-- **Frame attachment** to robot links; transformation **chaining** `${}^{0}_{N}T = \prod_{i=1}^{N} {}^{i-1}_{i}T$`.
+- **Frame attachment** to robot links; transformation **chaining** ${}^0_N T = \prod_{i=1}^{N} {}^{i-1}_i T$.
 - **Denavit-Hartenberg (DH) parameters:** the 4 link/joint parameters — **link length $a_{i-1}$**, **link twist $\alpha_{i-1}$**, **link offset $d_i$**, **joint angle $\theta_i$**; justification of why exactly 4 are needed.
-- **Craig modified DH convention** (frame placed at the *proximal* end of link $i$); the systematic **DH frame-assignment recipe**; DH-table construction.
-- **Per-link transformation formula** (from the formula sheet) yielding `${}^{i-1}_{i}T$` from the 4 DH parameters.
-- Base-frame `{0}` and end-effector frame `{N}` conventions; end-effector position via a constant body-frame offset; sanity-check configurations.
+- **Craig modified DH convention** (frame placed at the _proximal_ end of link $i$); the systematic **DH frame-assignment recipe**; DH-table construction.
+- **Per-link transformation formula** (from the formula sheet) yielding ${}^{i-1}_i T$ from the 4 DH parameters.
+- Base-frame $\lbrace 0 \rbrace$ and end-effector frame $\lbrace N \rbrace$ conventions; end-effector position via a constant body-frame offset; sanity-check configurations.
 - **Worked examples** in the deck: 3-link RRR planar, 3-link RPR, 4-link RPRR non-planar, 6-link Stanford Scheinman.
 
 ### 4. Inverse Kinematics (W5)
 
 Given desired end-effector pose, find joint variables.
 
-- **Problem statement:** invert `${}^{0}_{N}T`; counting equations vs unknowns for a 6-link arm (12 entries in the rotation+translation, but only **6 independent** giving 6 equations in 6 unknowns); distinction between end-effector frame and the last DH frame.
+- **Problem statement:** invert ${}^0_N T$; counting equations vs unknowns for a 6-link arm (12 entries in the rotation+translation, but only **6 independent** giving 6 equations in 6 unknowns); distinction between end-effector frame and the last DH frame.
 - **Existence of solutions:**
   - **Workspace** definition; **dexterous vs reachable** workspaces.
   - Two-link planar example with equal and unequal link lengths (disc / annulus shapes).
@@ -86,13 +86,13 @@ Given desired end-effector pose, find joint variables.
   - **No general algorithm** exists — case-by-case.
 - **Geometric solution** of the 3-link RRR planar arm:
   - **Cosine rule** for $\theta_2$ from link lengths and $(x, y)$.
-  - **`atan2`** for $\theta_1$.
+  - $\mathrm{atan2}$ for $\theta_1$.
   - **Sum-of-angles** constraint for $\theta_3$ using desired orientation $\phi$.
   - Both elbow-up and elbow-down cases.
 - **Algebraic solution** of the 3-link RRR planar arm:
   - **Square-and-sum** technique to eliminate one variable.
   - **Trigonometric substitution**: introduce $K_1, K_2, r, \gamma$ such that $r\cos(\theta - \gamma) = c$ → $\theta = \gamma \pm \cos^{-1}(c/r)$.
-  - Final closed-form `atan2` expressions for $\theta_1, \theta_2, \theta_3$.
+  - Final closed-form $\mathrm{atan2}$ expressions for $\theta_1, \theta_2, \theta_3$.
 - **(NE)** Full **PUMA 560 6-DOF worked example** (lecture content corresponding to optional videos 5.6-5.9): isolation of $\theta_1, \theta_3, \theta_2$ via pre-multiplication; $\theta_4$ with the $s_5 = 0$ wrist-singularity degenerate case; $\theta_5, \theta_6$; wrist-flip giving 8 total solutions; the general "isolate one joint variable at a time" recipe. **Per Moodle, explicitly non-examinable.**
 
 ### 5. Jacobians (W7)
@@ -103,11 +103,11 @@ Velocity and static-force mapping between joint and Cartesian space.
 - **Velocity notations:** relative vs absolute angular and linear velocities; **frame of expression** (a velocity can be expressed in any frame; convert with the rotation matrix); the leading-super/sub-script convention $^{A}\omega_{B}$, $^{A}v_{B}$.
 - **Velocity propagation algorithm** — link-by-link recursion from base to end-effector:
   - **Rotational velocity propagation** for revolute joints (adds $\dot{\theta}_{i+1} \hat{Z}_{i+1}$) and prismatic joints (no rotational contribution).
-  - **Linear velocity propagation** for revolute (tangential `ω × r` only) and prismatic (adds $\dot{d}_{i+1} \hat{Z}_{i+1}$).
-  - End-effector velocity from the last link's velocity; transformation to base frame via `${}^{0}_{N}R$`.
+  - **Linear velocity propagation** for revolute (tangential $\boldsymbol{\omega} \times \boldsymbol{r}$ only) and prismatic (adds $\dot{d}_{i+1} \hat{Z}_{i+1}$).
+  - End-effector velocity from the last link's velocity; transformation to base frame via ${}^0_N R$.
   - Worked example: planar 2-link arm velocity propagation.
 - **Direct differentiation method** for the Jacobian:
-  - Build forward kinematics `${}^{0}P_{\text{ee}}(\boldsymbol{\theta})$` and differentiate column-wise to get the **linear Jacobian** $J_v$.
+  - Build forward kinematics ${}^{0}P_{\text{ee}}(\boldsymbol{\theta})$ and differentiate column-wise to get the **linear Jacobian** $J_v$.
   - Build the rotation chain to get the **rotational Jacobian** $J_\omega$.
   - Time-varying nature: $J = J(\boldsymbol{\theta}(t))$.
   - Worked example: 2-link arm Jacobian via direct differentiation.
@@ -127,7 +127,7 @@ Velocity and static-force mapping between joint and Cartesian space.
 
 Generate smooth motion profiles for the manipulator to follow.
 
-- **Trajectory vs path:** trajectory carries a time profile $u(t)$, $\dot{u}(t)$, $\ddot{u}(t)$; the planner produces *reference signals* consumed downstream by the controller.
+- **Trajectory vs path:** trajectory carries a time profile $u(t)$, $\dot{u}(t)$, $\ddot{u}(t)$; the planner produces _reference signals_ consumed downstream by the controller.
 - **Joint-space vs Cartesian-space schemes:**
   - Joint-space: plan in $\boldsymbol{\theta}$ directly, low cost, no IK at runtime.
   - Cartesian-space: plan straight-line / shaped Cartesian paths; **inverse kinematics at every sample**; vulnerability to workspace boundaries and singularities mid-trajectory.
@@ -153,7 +153,7 @@ Equations of motion of the manipulator.
 - **Canonical form** in joint space (formula sheet):
   $$\boldsymbol{\tau} = M(\boldsymbol{\theta}) \ddot{\boldsymbol{\theta}} + V(\boldsymbol{\theta}, \dot{\boldsymbol{\theta}}) + G(\boldsymbol{\theta})$$
   with **mass/inertia matrix** $M$ (perceived inertia), **velocity-coupling vector** $V$ (centrifugal + Coriolis), **gravity vector** $G$.
-- **Underlying physics:** Newton's second law for the linear motion of a link's centre of mass; **Euler's equation** for the rotational motion `${}^{C}N = {}^{C}I \, {}^{C}\dot{\boldsymbol{\omega}} + {}^{C}\boldsymbol{\omega} \times ({}^{C}I \, {}^{C}\boldsymbol{\omega})$`.
+- **Underlying physics:** Newton's second law for the linear motion of a link's centre of mass; **Euler's equation** for the rotational motion ${}^{C}N = {}^{C}I \, {}^{C}\dot{\boldsymbol{\omega}} + {}^{C}\boldsymbol{\omega} \times ({}^{C}I \, {}^{C}\boldsymbol{\omega})$.
 - **Newton-Euler recursive algorithm:**
   - **Outward iteration** (base → tip): propagate angular velocity, angular acceleration, linear acceleration, centre-of-mass acceleration; compute per-link inertial force $F_i$ and moment $N_i$. The **"gravity via base acceleration" trick** absorbs gravity into the recursion.
   - **Inward iteration** (tip → base): propagate force $^{i}f_{i}$ and moment $^{i}n_{i}$ across each joint; extract **joint torque** $\tau_i$ (revolute: $\tau_i = {}^{i}n_{i}^{T} \hat{Z}_i$) or **joint force** (prismatic: $\tau_i = {}^{i}f_{i}^{T} \hat{Z}_i$).
