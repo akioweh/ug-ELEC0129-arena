@@ -7,7 +7,7 @@ This syllabus distils the 8 lecture topics of the module into a single map of wh
 **How to use this for exam prep.**
 
 1. The final exam is **40% of the module**, **in-person, closed-book** (a recent change from prior years' open-book online format — older papers carry that caveat).
-2. The official **formula sheet** (`meta/formula_sheet/Formula_Sheet.pdf`) is provided in the exam. It carries the rotation-matrix forms, DH transform, velocity-propagation equations, Newton-Euler iteration, polynomial-trajectory coefficient tables, and Cartesian/joint-space dynamics — **memorisation of these expressions is not required, but slick application is.**
+2. The official **formula sheet** (`materials/Formula_Sheet.md`, source PDF in `meta/formula_sheet/`) is *not* handed out as a separate page in the exam — its formulae appear inline as hints with the questions that need them. Use it as the definitive index of "formulae I don't need to memorise (because they'll be supplied)". **In scope on the sheet:** equivalent angle-axis matrix + Euler-parameter rotation matrix; modified-DH per-link transform; velocity-propagation equations (revolute + prismatic); LSPB blend-time + piecewise trajectory; Newton-Euler outward + inward iteration; Cartesian-space dynamics `M_x, V_x, G_x`; inertia-tensor matrix + integrals. **Not on the sheet (so memorise / be able to derive):** elementary rotation matrices, HTM block-form and inverse, fixed-/Euler-angle recovery, cubic/quintic polynomial coefficients, mass-spring-damper free response, PD / partitioned-control / computed-torque laws, DC-motor model, and **all inverse-kinematics formulae** (the IK and Control sections on the sheet are literally listed as "None").
 3. Items marked **(NE)** are explicitly **non-examinable** per Moodle. They appear in the lecture decks but are out of scope.
 4. The 20% Robot Offline Programming coursework (RoboDK) and the 40% Group Coursework (Build + Demo) — including all MATLAB implementation tasks and workshop instructions — are **out of scope** for this syllabus and were stripped from `meta/`.
 
@@ -213,6 +213,6 @@ The following appear in the module ecosystem but are **not in scope for the exam
 
 ## What you DO get in the exam room
 
-- The official **`Formula_Sheet.pdf`** (`meta/formula_sheet/`). Confirmed unchanged between 23/24 and 25/26.
+- Formulae from the official **`Formula_Sheet.pdf`** (`materials/Formula_Sheet.md` for the markdown version), supplied **inline with each question that needs them** — not as a separate reference page. The set of formulae on the sheet is confirmed unchanged between 23/24 and 25/26. See `materials/LORE.md` for the in-scope / out-of-scope breakdown.
 - Closed book, in-person, paper and pencil.
 - Past papers for revision: `meta/past_papers/ELEC0129_{2122,2223,2324}_{paper,solutions}.pdf`. Note 21/22 and 22/23 were **online, open-book** so question styles may be shorter / more reference-heavy than the current closed-book format; **23/24 is the most representative**. The 20/21 paper is from ELEC0140 — useful drill, but Q5 is out of scope.

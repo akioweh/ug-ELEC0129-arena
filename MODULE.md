@@ -42,7 +42,7 @@ Peer review (IPAC) is required for the group coursework but is not exam-relevant
 ## Exam format
 
 - **In-person, closed-book** (changed from prior years' online open-book format — see past papers).
-- A printed **formula sheet** is provided in the exam (`meta/formula_sheet/Formula_Sheet.pdf` matches the in-exam sheet — verified against the 23/24 zip which bundled the same PDF).
+- A **formula sheet** is associated with the exam (`meta/formula_sheet/Formula_Sheet.pdf` matches the in-exam sheet — verified against the 23/24 zip which bundled the same PDF). The sheet's opening note clarifies its delivery model: *"they will not appear in the exam as a separate page. Instead, they will appear in the particular question where required."* So formulae listed on the sheet are supplied inline as hints with the relevant question, not on a separate consulted page. The sheet's purpose is to flag in advance which formulae you don't need to memorise. **It covers** angle-axis + Euler-parameter rotation matrices, the modified-DH per-link transform, velocity-propagation equations, LSPB trajectory formulas, the Newton-Euler iteration, Cartesian-space dynamics, and the inertia-tensor definition. **It does NOT cover** elementary rotation matrices, HTM block-form and inverse, fixed-/Euler-angle recovery, cubic/quintic polynomials, control law / partitioned-control forms, DC-motor model, mass-spring-damper free response, or any inverse-kinematics content (the IK and Control sections on the sheet say literally "None"). See `materials/Formula_Sheet.md` for the verbatim content.
 - Past papers from 21/22, 22/23, 23/24 are direct ELEC0129 instances; **20/21 is from sister module ELEC0140 — Question 5 in that paper is explicitly out of scope per Moodle.**
 
 ## Weekly schedule

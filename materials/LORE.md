@@ -21,11 +21,47 @@ Compare with the inline `<!-- transcription-audit: -->` blocks in `ALL_SLIDES.md
 
 **Source:** Moodle "Module assessment details" section. See `../EXAM_ANALYSIS.md` for the full format analysis.
 
-### Formula sheet
+### Formula-sheet delivery model
 
-A printed copy of `Formula_Sheet.pdf` (this directory) is provided in the exam. It carries the rotation-matrix forms, Craig modified-DH per-link transform, velocity-propagation equations, Newton-Euler iteration, polynomial-trajectory coefficient tables, and Cartesian/joint-space dynamics canonical forms. **Memorisation of these expressions is not required, but slick application is.**
+**The formula sheet does *not* appear in the exam as a separate consulted page.** The sheet's own opening note states:
 
-**Source:** Moodle.
+> "Instead, they will appear in the particular question where required. For e.g. 'Given the rotation matrix, calculate the Euler parameters. Hint: Formula is …'"
+
+So the role of `Formula_Sheet.pdf` / `Formula_Sheet.md` is to tell you *in advance* which formulae you don't need to memorise — because if a question requires one of them, it will be supplied inline as a hint with that question. There is no separate reference page to flip to during the exam.
+
+**Practical implications:**
+
+- Memorise what *isn't* on the sheet (everything in the lectures that the sheet doesn't list — see below), because those won't be hinted in-question either.
+- For what *is* on the sheet, focus revision on slick *application* rather than recall. You will get the formula but you still need to apply it under time pressure.
+- The list of in-sheet formulae also tells you what topics the exam is likely to test: the sheet exists for formulae the lecturer plans to supply, which strongly correlates with what's compute-intensive enough to be examined at length.
+
+### What the formula sheet actually contains
+
+A complete list (3 pages — see `Formula_Sheet.md` for the verbatim formulae):
+
+| Section | Contents |
+| --- | --- |
+| **Spatial description and transformation** | Equivalent angle-axis matrix (with versine shorthand `vθ = 1 − cθ`); Euler-parameter rotation matrix. |
+| **Forward kinematics** | Craig modified-DH per-link transform `${}^{i-1}_{i}T`$. |
+| **Inverse kinematics** | **None.** Explicitly listed with the word "None". |
+| **Jacobians** | Velocity-propagation equations — revolute joints, prismatic joints, end-effector recovery from the last propagated link. |
+| **Trajectory planning** | Linear-segment-with-parabolic-blends (LSPB): the blend-time / blend-position formulas `t_b`, `u_b`, and the three-segment piecewise `u(t)`. |
+| **Dynamics** | Newton-Euler outward iteration (full set: `ω, ω̇, v̇, v̇_C, F, N`); inward iteration (`f, n`, plus revolute/prismatic τ extraction); Cartesian-space dynamics `J^{-T} M(q) J^{-1} = M_x` (with `V_x`, `G_x` likewise); the inertia tensor matrix and the six integrals (mass moments and products of inertia). |
+| **Control** | **None.** Explicitly listed with the word "None". |
+
+### What the formula sheet does **NOT** contain (memorise / be able to derive these)
+
+- **Elementary rotation matrices** `Rot(x, θ)`, `Rot(y, θ)`, `Rot(z, θ)`.
+- **The 4×4 HTM block form** (rotation + translation + `[0 0 0 1]`).
+- **HTM inverse closed form** `[R^T, −R^T·p; 0, 1]`.
+- **Fixed-angle / Euler-angle** parameter↔matrix recipes (and the `atan2`-based recovery formulas).
+- **Cubic and quintic polynomial trajectory** coefficient solutions — only LSPB is on the sheet.
+- **Mass-spring-damper** standard form and the over/critical/under-damped closed-form responses.
+- **PD / partitioned-control / computed-torque** law structures (the model-based compensator + servo controller split).
+- **Single-joint DC-motor model** equations.
+- **All inverse-kinematics** content (workspace, geometric/algebraic solution techniques) — Moodle: "None".
+
+**Source:** the formula sheet PDF itself + Moodle.
 
 ---
 

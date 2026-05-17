@@ -1,6 +1,6 @@
 # ELEC0129 — Exam analysis
 
-Synthesised from four past papers (20/21 ELEC0140 sister, 21/22, 22/23, 23/24). The upcoming exam (25/26) is **in-person, closed-book** with the official **`Formula_Sheet.pdf` supplied**. **23/24 is the canonical reference** — it is the only past paper that matches the upcoming format. Earlier years were online open-book and read differently in shape (longer, fewer questions) even though they sit on the same syllabus.
+Synthesised from four past papers (20/21 ELEC0140 sister, 21/22, 22/23, 23/24). The upcoming exam (25/26) is **in-person, closed-book**. The official **formula sheet** (`materials/Formula_Sheet.md`) is *not* handed out as a separate page — its formulae appear inline as hints with the questions that need them. So the sheet is best read in advance as an index of "formulae I don't have to memorise". **23/24 is the canonical reference** — it is the only past paper that matches the upcoming format. Earlier years were online open-book and read differently in shape (longer, fewer questions) even though they sit on the same syllabus.
 
 Full transcripts live in `meta/past_papers_transcribed/`.
 
@@ -117,7 +117,7 @@ These specific computations have shown up in *multiple* past papers. Prioritise 
 | Linear Jacobian of an FK + identify singular configurations | 21/22 Q2b, 22/23 Q2b, 23/24 Q18 | Direct-differentiation method; `det J = 0` enumeration. |
 | Newton-Euler outward + inward iteration for a 2-link / RP arm | 20/21 Q3, 21/22 Q5 (single-joint), 22/23 Q4 | Including the "gravity via base acceleration" trick. |
 | Inertia tensor of a primitive shape by triple integration | 21/22 Q3, 23/24 Q25 | Rectangular block (`m/12·(l²+h²)`), triangular cross-section, rod. The slide's diagonal-negative sign convention on products of inertia. |
-| Cubic / quintic / LSPB trajectory coefficient solve | 20/21 Q4, 21/22 Q4, 22/23 Q3b, 23/24 Q20 | Cubic: 4 BCs → 4 coefficients in closed form. The deck's formula sheet supplies the templates. |
+| Cubic / quintic / LSPB trajectory coefficient solve | 20/21 Q4, 21/22 Q4, 22/23 Q3b, 23/24 Q20 | Cubic: 4 BCs → 4 coefficients in closed form. Note the formula sheet only carries the LSPB form; cubic and quintic coefficient solves must be done from first principles (or remembered from the lecture transcript). |
 | Mass-spring-damper free response with numerical `(m, b, k)` and ICs | 21/22 Q5, 23/24 Q27 | Decide damping regime; assemble the matching closed-form (over / critical / under). |
 | Tracking-error closed-loop `ë + k_v ė + k_p e = 0` → `e → 0` | 20/21 Q4c, 21/22 Q5b, 23/24 Q30 | Partitioned-control argument. |
 
@@ -127,10 +127,10 @@ These specific computations have shown up in *multiple* past papers. Prioritise 
 
 ### Before the exam
 
-1. **Read the formula sheet cover-to-cover until you know what's on it and where**. The 23/24 paper *relies* on the candidate to know the formula sheet has the modified-DH transform template, the Newton-Euler iteration, the polynomial-trajectory coefficient tables, and the inertia tensor integral form. You won't be re-deriving these — but you need to find them in seconds.
-2. **Drill the two big-mark mechanical questions** (chained DH multiplication; Jacobian-and-determinant). Together they're worth ~35% in 23/24. Most of the marks are scoring atomic algebra steps that are itemised in the mark scheme. Speed and reliability matter more than insight.
+1. **Read `materials/Formula_Sheet.md` carefully and know what it does and doesn't contain** — see `materials/LORE.md` for the in-scope / out-of-scope split. The sheet's formulae will be supplied to you inline as hints with the relevant question, so memorising them is not required, but rapid application is. Crucially, the sheet **does not** carry: elementary rotation matrices, the HTM block-form / inverse, fixed-/Euler-angle recovery, cubic/quintic polynomial coefficients, the mass-spring-damper free-response forms, any PD / partitioned-control law structures, the DC-motor model, or **any inverse-kinematics formulae**. All of those need to be memorised or be derivable on the fly.
+2. **Drill the two big-mark mechanical questions** (chained DH multiplication; Jacobian-and-determinant). Together they're worth ~35% in 23/24. Most of the marks are scoring atomic algebra steps that are itemised in the mark scheme. Speed and reliability matter more than insight. The modified-DH per-link template *is* on the formula sheet, so you only need to apply it; the chain multiplication is yours to grind.
 3. **Memorise the recall bullets** in §3.A. These are free marks if rehearsed.
-4. **Drill the recurring derivations** in §4 — `T^{-1}`, Euler-angle extraction, cubic coefficients, MSD response, tracking-error proof — each should be a 3–5 minute reflex.
+4. **Drill the recurring derivations** in §4 — `T^{-1}`, Euler-angle extraction, cubic coefficients, MSD response, tracking-error proof — each should be a 3–5 minute reflex. Note that none of these are supplied by the formula sheet.
 5. **Skip non-examinable revision**: the PUMA 560 6-DOF IK section in Week 5 is explicitly out of scope per Moodle. Earlier-year 22/23 Q5 (full IRB120 IK) is unlikely to recur in closed-book format because it's a 25-mark monolith.
 
 ### During the exam
@@ -140,7 +140,7 @@ These specific computations have shown up in *multiple* past papers. Prioritise 
 3. **Always sanity-check** worked examples at a home configuration (`θ_i = 0`) — the deck's own examples do this. A failed sanity check tells you where to backtrack.
 4. **Don't forget to identify the second IK branch / second β branch.** Past papers explicitly award marks for stating the alternative solution (elbow-up vs elbow-down; `β` vs `π − β`).
 5. **When you see a "spot the error" question (Q23-style)**, look for: sign on gravity, missing Coriolis cross-term, dimensional mismatch, asymmetric off-diagonal mass matrix entries.
-6. **Read the formula sheet before each major question** to remind yourself of the exact template. The "modified DH transform" matrix in particular has a sign pattern that's easy to recall *wrongly* from memory.
+6. **When a question hints a formula inline, use *exactly* that form** — even if you've memorised a different-looking version of the same identity. The marker is comparing your application to the supplied form. The modified-DH transform matrix in particular has a sign pattern that's easy to recall *wrongly* from memory; if it's hinted, copy the hint.
 
 ### Time budget (180-minute exam, ~100 marks at 23/24 weighting)
 
