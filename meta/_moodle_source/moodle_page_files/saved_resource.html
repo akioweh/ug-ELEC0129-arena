@@ -1,0 +1,12 @@
+
+<!-- saved from url=(0012)about:srcdoc -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>
+    window.onstorage = () => {
+        if (event.key == null) {
+            const consent = window.parent.UCLPrivacy.getConsent();
+            localStorage.setItem("ucl_privacy_consent", JSON.stringify(consent));
+            localStorage.setItem("ucl_privacy_has_consented", JSON.stringify(consent.necessary));
+        }
+    };
+</script>
+</head><body></body></html>
