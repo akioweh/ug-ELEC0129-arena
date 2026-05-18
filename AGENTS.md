@@ -32,7 +32,9 @@ Learning outcomes (paraphrased): analyse and design serial robotic manipulators;
 
 ## Default behaviour
 
-`materials/` is **mandatory context** — (not including subfolders) read every file in it in full at session start. The only exception is when the task at hand is clearly a **meta task** (see below) and so does not draw on the module content.
+`materials/` is **mandatory context** — (not including subfolders) read every file in it **end-to-end** at session start, before doing anything else. In particular, `materials/ALL_SLIDES.md` and `materials/LORE.md` must be read **in their entirety** — not skimmed, not grepped, not partially read. They are the core module content and any non-trivial answer depends on having them fully in context. Searching into them after the fact instead of reading them up-front is the failure mode to avoid.
+
+The only exception is when the task at hand is clearly a **meta task** (see below) and so does not draw on the module content.
 
 ## Meta tasks
 
