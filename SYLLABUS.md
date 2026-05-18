@@ -213,6 +213,6 @@ The following appear in the module ecosystem but are **not in scope for the exam
 
 ## What you DO get in the exam room
 
-- Formulae from the official **`Formula_Sheet.pdf`** (`materials/Formula_Sheet.md` for the markdown version), supplied **inline with each question that needs them** — not as a separate reference page. The set of formulae on the sheet is confirmed unchanged between 23/24 and 25/26. See `materials/LORE.md` for the in-scope / out-of-scope breakdown.
+- Formulae from the official **`meta/formula_sheet/Formula_Sheet.pdf`** (`materials/Formula_Sheet.md` for the markdown version), supplied **inline with each question that needs them** — not as a separate reference page. The set of formulae on the sheet is confirmed unchanged between 23/24 and 25/26. See `materials/LORE.md` for the in-scope / out-of-scope breakdown.
 - Closed book, in-person, paper and pencil.
 - Past papers for revision: `meta/past_papers/ELEC0129_{2122,2223,2324}_{paper,solutions}.pdf`. Note 21/22 and 22/23 were **online, open-book** so question styles may be shorter / more reference-heavy than the current closed-book format; **23/24 is the most representative**. The 20/21 paper is from ELEC0140 — useful drill, but Q5 is out of scope.

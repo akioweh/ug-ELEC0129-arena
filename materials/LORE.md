@@ -27,7 +27,7 @@ Compare with the inline `<!-- transcription-audit: -->` blocks in `ALL_SLIDES.md
 
 > "Instead, they will appear in the particular question where required. For e.g. 'Given the rotation matrix, calculate the Euler parameters. Hint: Formula is …'"
 
-So the role of `Formula_Sheet.pdf` / `Formula_Sheet.md` is to tell you *in advance* which formulae you don't need to memorise — because if a question requires one of them, it will be supplied inline as a hint with that question. There is no separate reference page to flip to during the exam.
+So the role of `Formula_Sheet.md` (the authoritative PDF source lives at `../meta/formula_sheet/Formula_Sheet.pdf`) is to tell you *in advance* which formulae you don't need to memorise — because if a question requires one of them, it will be supplied inline as a hint with that question. There is no separate reference page to flip to during the exam.
 
 **Practical implications:**
 
